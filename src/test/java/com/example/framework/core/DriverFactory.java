@@ -9,9 +9,13 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.time.Duration;
+
 public class DriverFactory {
 
     private static final ThreadLocal<WebDriver> webDriverThreadLocal = new ThreadLocal<>();
+    //private static Object Duration;
+
     public static WebDriver getDriver() {
         if (webDriverThreadLocal.get() == null) {
             webDriverThreadLocal.set(create());
@@ -31,6 +35,7 @@ public class DriverFactory {
                 ChromeOptions options = new ChromeOptions();
                 if (headless) options.addArguments("--headless=new");
                 options.addArguments("--start-maximized");
+                options.addArguments("--incognito");
                 driver =  new ChromeDriver(options);
                 break;
             }
@@ -50,6 +55,7 @@ public class DriverFactory {
             default -> throw new IllegalArgumentException("Unsupported browser: " + browser);
         }
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Waits up to 10 seconds
         return driver;
     }
 
