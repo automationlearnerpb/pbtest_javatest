@@ -13,30 +13,47 @@ import java.time.Duration;
 
 public class BasePage {
 
+    protected WebDriver driver;
+
     public BasePage(){
-        PageFactory.initElements(getDriver(), this);
+        this.driver = getDriver();
+        PageFactory.initElements(this.driver, this);
     }
 
-    public WebDriver getDriver() {
+    //This is a method of implementing verify landing page. Change the return value to True.
+    //This abstract method can only be implemented in an abstract class
+    //protected abstract void ensureOnPage(){};
+
+    protected WebDriver getDriver() {
         return DriverFactory.getDriver();
     }
 
-    public void navigateToUrl(String url){
-        getDriver().get(url);
+    protected void navigateToUrl(String url){
+        this.driver.get(url);
     }
 
-    public void sendKeys(By by, String textToType){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+    protected void sendKeys(By by, String textToType){
+        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(by)).sendKeys(textToType);
     }
 
-    public void sendKeys(WebElement element, String textToType){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+    protected void sendKeys(WebElement element, String textToType){
+        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(element)).sendKeys(textToType);
     }
 
-    public void clickSubmit(By by){
-        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+    protected void clickSubmit(By by){
+        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(by)).click();
+    }
+
+    protected void clickSubmit(WebElement element){
+        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
+    protected WebElement isVisible(By locator){
+        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(5));
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }

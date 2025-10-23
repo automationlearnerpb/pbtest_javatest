@@ -1,5 +1,6 @@
 package com.example.framework.hooks;
 
+import com.example.framework.core.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -18,20 +19,12 @@ public class Hooks {
     @Before
     public void setupDriver(){
         System.out.println("Before Hook step");
-        getDriver();
+        DriverFactory.getDriver();
     }
 
     @After
     public void tearDown(Scenario scenario) {
         System.out.println("After Hook step");
-        WebDriver driver = getDriver(); // fetch from ThreadLocal
-        if (driver != null) {
-            if (scenario.isFailed() && driver instanceof TakesScreenshot ts) {
-                byte[] shot = ts.getScreenshotAs(OutputType.BYTES);
-                scenario.attach(shot, "image/png", "failed-step");
-            }
-            driver.quit();
-        }
-        cleanupDriver(); // removes ThreadLocal reference
+        DriverFactory.cleanupDriver();
     }
 }

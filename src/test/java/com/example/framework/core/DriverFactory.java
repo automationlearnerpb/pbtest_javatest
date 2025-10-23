@@ -1,6 +1,7 @@
 package com.example.framework.core;
 
 //import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -36,6 +37,7 @@ public class DriverFactory {
                 if (headless) options.addArguments("--headless=new");
                 options.addArguments("--start-maximized");
                 options.addArguments("--incognito");
+                options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver =  new ChromeDriver(options);
                 break;
             }
@@ -43,12 +45,14 @@ public class DriverFactory {
                 //WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions options = new FirefoxOptions();
                 if (headless) options.addArguments("-headless");
+                options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new FirefoxDriver(options);
                 break;
             }
             case "edge" -> {
                 //WebDriverManager.edgedriver().setup();
                 EdgeOptions options = new EdgeOptions();
+                options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new EdgeDriver(options);
                 break;
             }
@@ -60,7 +64,10 @@ public class DriverFactory {
     }
 
     public static void cleanupDriver() {
-        webDriverThreadLocal.get().quit();
-        webDriverThreadLocal.remove();
+        WebDriver driver = webDriverThreadLocal.get();
+        if (driver != null) {
+            try { driver.quit(); } catch (Exception ignored) {}
+            webDriverThreadLocal.remove();
+        }
     }
 }
