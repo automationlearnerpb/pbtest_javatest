@@ -8,11 +8,24 @@
     <artifactId>JavaCucumberAutomation</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <build>
+        <plugins>
+           <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+               <configuration>
+                   <suiteXmlFiles>src/test/java/com/example/framework/core/runners/testng/testng.xml</suiteXmlFiles>
+               </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <properties>
         <maven.compiler.source>24</maven.compiler.source>
         <maven.compiler.target>24</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
 
     <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
     <dependencies>
@@ -45,8 +58,8 @@
             <artifactId>cucumber-picocontainer</artifactId>
             <version>7.30.0</version>
         </dependency>
-
     </dependencies>
+
 
 
 </project>
