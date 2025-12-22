@@ -1,0 +1,18 @@
+# requirements.txt for pytest-based UI (Selenium) and API test framework
+
+pytest>=7.4
+pytest-xdist>=2.6
+pytest-html>=3.3
+pytest-cov>=4.1
+
+selenium>=4.11
+webdriver-manager>=4.0
+
+requests>=2.31
+httpx>=0.24
+responses>=0.23
+
+python-dotenv>=1.0
+
+# Optional: reporting/CI integrations
+allure-pytest>=2.13

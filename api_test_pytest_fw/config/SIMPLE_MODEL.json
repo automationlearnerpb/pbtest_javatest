@@ -1,0 +1,176 @@
+{
+  "dai_version": "develop-100-384087d8deca7efcdfb147685192642d48e647bb",
+  "name": "SIMPLE_MODEL",
+  "definition": {
+    "path": "",
+    "tags": [],
+    "version": "develop-100",
+    "ePFsuite": "",
+    "elements": [
+      {
+        "id": 0,
+        "name": "SIMPLE_MODEL",
+        "type": "Root",
+        "parameters": [
+          {
+            "id": 1,
+            "name": "",
+            "type": "",
+            "random": "",
+            "ranges": [],
+            "initial": "",
+            "parameterUuid": "ef732a57-1d26-4092-a1e9-5cbcd89255e5"
+          }
+        ],
+        "elementUuid": "07336de3-0190-452b-bd4b-fc2bca166518"
+      },
+      {
+        "id": 428821547916,
+        "name": "Exit",
+        "type": "State",
+        "parentId": 0,
+        "invisible": true,
+        "stateType": "Normal",
+        "parameters": [],
+        "elementUuid": "675083c0-fe1d-42ee-b88b-1faafa363dc5",
+        "sortingType": "Z"
+      },
+      {
+        "id": 143142493363,
+        "name": "Error",
+        "type": "State",
+        "parentId": 0,
+        "invisible": true,
+        "stateType": "Exception",
+        "parameters": [],
+        "elementUuid": "057c2b79-50b3-48f6-8939-adf4642e5586",
+        "sortingType": "X"
+      },
+      {
+        "id": 227799973782,
+        "name": "Cleanup",
+        "type": "State",
+        "parentId": 0,
+        "invisible": true,
+        "stateType": "Cleanup",
+        "parameters": [],
+        "elementUuid": "783fbe74-1a13-4f9f-8131-95429d071a14",
+        "sortingType": "Y"
+      },
+      {
+        "dx": 20,
+        "dy": 20,
+        "id": 219924914032,
+        "name": "Initial",
+        "type": "State",
+        "textX": 20,
+        "textY": 25,
+        "parentId": 0,
+        "invisible": false,
+        "stateType": "Start",
+        "parameters": [],
+        "shapeWidth": 120,
+        "elementUuid": "6bd754dc-59dc-4a17-9f12-d840523f5f7b",
+        "shapeHeight": 120,
+        "sortingType": "A"
+      },
+      {
+        "dx": 160,
+        "dy": 20,
+        "id": 428821547918,
+        "name": "State0",
+        "type": "State",
+        "textX": 20,
+        "textY": 25,
+        "parentId": 0,
+        "invisible": false,
+        "stateType": "Normal",
+        "parameters": [
+          {
+            "id": 0,
+            "name": "",
+            "type": "",
+            "random": "",
+            "ranges": [],
+            "initial": "",
+            "parameterUuid": "d72478ab-b5c5-4e80-a62a-121652278866"
+          }
+        ],
+        "shapeWidth": 120,
+        "elementUuid": "9618b3a2-d671-47ba-8304-faf373946dc9",
+        "shapeHeight": 100,
+        "sortingType": "B"
+      },
+      {
+        "dx": 20,
+        "dy": 40,
+        "id": 428821547917,
+        "name": "Action0",
+        "type": "Action",
+        "textX": 15,
+        "textY": 22,
+        "weight": 100,
+        "parentId": 219924914032,
+        "callLimit": 0,
+        "actionType": "Normal",
+        "parameters": [
+          {
+            "id": 0,
+            "name": "",
+            "type": "",
+            "random": "",
+            "ranges": [],
+            "initial": "",
+            "parameterUuid": "51d9c447-6ed0-4d77-b44c-fdbeceda1336"
+          }
+        ],
+        "shapeWidth": 80,
+        "elementUuid": "8548a42a-5f4c-419c-84f4-136ee3077218",
+        "shapeHeight": 40,
+        "sortingType": "C",
+        "connectedStates": [
+          {
+            "stateRef": 428821547918
+          }
+        ]
+      },
+      {
+        "dx": 20,
+        "dy": 40,
+        "id": 428821547919,
+        "name": "Action1",
+        "type": "Action",
+        "textX": 15,
+        "textY": 22,
+        "weight": 100,
+        "parentId": 428821547918,
+        "callLimit": 0,
+        "actionType": "Normal",
+        "parameters": [
+          {
+            "id": 0,
+            "name": "",
+            "type": "",
+            "random": "",
+            "ranges": [],
+            "initial": "",
+            "parameterUuid": "1ad8162d-bd0c-42d9-be0a-7056efe253e9"
+          }
+        ],
+        "shapeWidth": 80,
+        "elementUuid": "2f337546-d32e-4aa5-b418-bf51efacb8ef",
+        "shapeHeight": 40,
+        "sortingType": "C"
+      }
+    ],
+    "modeluuid": "6ed14d8e-e5b8-4dcb-a40c-fb8916ecf8ed",
+    "suitePath": "SIMPLE_MODEL.suite",
+    "stateCounter": 1,
+    "actionCounter": 2,
+    "parameterCounter": 0,
+    "runCleanupAfterAbort": false,
+    "allowGlobalActionsInInitialStates": true
+  },
+  "test_cases": [],
+  "space_id": "910ba100-0000-4000-a000-000000000000"
+}
