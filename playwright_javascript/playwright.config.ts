@@ -12,6 +12,16 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  //Test timeout
+  //timeout: 50000,
+  //globalTimeout: 60000,
+  
+  //Specifying action timeout for click actions
+  //use: {
+    /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
+ //   actionTimeout: 1000,
+ // },
+
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
